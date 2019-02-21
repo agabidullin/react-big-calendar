@@ -168,6 +168,7 @@ class DayColumn extends React.Component {
       components,
       step,
       timeslots,
+      minimumStartDifference,
     } = this.props
 
     const { slotMetrics } = this
@@ -177,7 +178,7 @@ class DayColumn extends React.Component {
       events,
       accessors,
       slotMetrics,
-      minimumStartDifference: Math.ceil((step * timeslots) / 2),
+      minimumStartDifference: minimumStartDifference || Math.ceil((step * timeslots) / 2),
     })
 
     return styledEvents.map(({ event, style }, idx) => {
