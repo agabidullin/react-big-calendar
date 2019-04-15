@@ -52,11 +52,16 @@ function TimeGridEvent(props) {
             ? (typeof label === 'string' ? label + ': ' : '') + tooltip
             : undefined
         }
-        className={cn('rbc-event', className, userProps.className, {
-          'rbc-selected': selected,
-          'rbc-event-continues-earlier': continuesEarlier,
-          'rbc-event-continues-later': continuesLater,
-        })}
+        className={cn(
+          width < 100 ? 'rbc-event rbc-event-intersect' : 'rbc-event',
+          className,
+          userProps.className,
+          {
+            'rbc-selected': selected,
+            'rbc-event-continues-earlier': continuesEarlier,
+            'rbc-event-continues-later': continuesLater,
+          }
+        )}
       >
         {inner}
       </div>
